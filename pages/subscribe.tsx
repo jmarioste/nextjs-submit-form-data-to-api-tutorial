@@ -27,22 +27,32 @@ const SubscribePage = () => {
   };
 
   return (
-    <div className="container mx-auto">
-      <h1>Sign up to our newsletter!</h1>
+    <div className="container mx-auto max-w-sm">
+      <h1 className="text-3xl my-4">Sign up to our newsletter!</h1>
       {/* 👇 wire-up the handleSubmit handler */}
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-4 items-stretch"
+      >
         <input
           placeholder="Enter your email"
           name="email"
           // 👇 wire-up the controlled state
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className="input input-"
         />
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="btn btn-accent">
+          Sign Up
+        </button>
+        <div className="card shadow-xl bg-base-100">
+          <div className="card-body">
+            <p className="card-title">Result</p>
+            <pre>{JSON.stringify(result, null, 4)}</pre>
+          </div>
+        </div>
       </form>
       {/* show the data returned by the api */}
-      Result
-      <pre>{JSON.stringify(result, null, 4)}</pre>
     </div>
   );
 };
